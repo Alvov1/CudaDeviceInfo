@@ -6,7 +6,7 @@
 #include <cuda_runtime_api.h>
 
 namespace Cuda {
-    void showCapabilities() {
+    int showCapabilities() {
         int devicesCount;
         if(cudaSuccess != cudaGetDeviceCount( &devicesCount ))
             return std::printf("Cuda::ShowCapabilities failed: cudaGetDeviceCount function failed.");
