@@ -19,22 +19,24 @@ namespace Cuda {
             if (cudaSuccess != cudaGetDeviceProperties(&properties, i))
                 return std::printf("Cuda::ShowCapabilities failed: cudaGetDeviceProperties function failed.");
 
-            return std::printf("Device: %s.\n"
-                              "Max threads per block: %d, max threads dimension: (%d, %d, %d), max grid size: (%d, %d, %d). Total global\n"
-                              "memory: %zu bytes, total const memory: %zu bytes, memory bus width: %d bits, l2 cache size: %d bytes\n\n",
-                              properties.name,
-                              properties.maxThreadsPerBlock,
-                              properties.maxThreadsDim[0],
-                              properties.maxThreadsDim[1],
-                              properties.maxThreadsDim[2],
-                              properties.maxGridSize[0],
-                              properties.maxGridSize[1],
-                              properties.maxGridSize[2],
-                              properties.totalGlobalMem,
-                              properties.totalConstMem,
-                              properties.memoryBusWidth,
-                              properties.l2CacheSize);
+            std::printf("Device: %s.\n"
+                        "Max threads per block: %d, max threads dimension: (%d, %d, %d), max grid size: (%d, %d, %d). Total global\n"
+                        "memory: %zu bytes, total const memory: %zu bytes, memory bus width: %d bits, l2 cache size: %d bytes\n\n",
+                        properties.name,
+                        properties.maxThreadsPerBlock,
+                        properties.maxThreadsDim[0],
+                        properties.maxThreadsDim[1],
+                        properties.maxThreadsDim[2],
+                        properties.maxGridSize[0],
+                        properties.maxGridSize[1],
+                        properties.maxGridSize[2],
+                        properties.totalGlobalMem,
+                        properties.totalConstMem,
+                        properties.memoryBusWidth,
+                        properties.l2CacheSize);
         }
+
+        return devicesCount;
     }
 }
 
