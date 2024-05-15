@@ -20,10 +20,11 @@ namespace Cuda {
                 return std::printf("Cuda::ShowCapabilities failed: cudaGetDeviceProperties function failed.");
 
             std::printf("Device: %s.\n"
-                        "Max threads per block: %d, max threads dimension: (%d, %d, %d), max grid size: (%d, %d, %d).\n"
+                        "Max threads per block: %d, max blocks per multiprocessor %d, max threads dimension: (%d, %d, %d), max grid size: (%d, %d, %d).\n"
                         "Total global memory: %zu bytes, total const memory: %zu bytes, memory bus width: %d bits, l2 cache size: %d bytes\n\n",
                         properties.name,
                         properties.maxThreadsPerBlock,
+                        properties.maxBlocksPerMultiProcessor,
                         properties.maxThreadsDim[0],
                         properties.maxThreadsDim[1],
                         properties.maxThreadsDim[2],
