@@ -9,15 +9,15 @@ namespace Cuda {
     int showCapabilities() {
         int devicesCount;
         if (cudaSuccess != cudaGetDeviceCount(&devicesCount))
-            return std::printf("Cuda::ShowCapabilities failed: cudaGetDeviceCount function failed.");
+            return std::printf("Cuda::ShowCapabilities failed: cudaGetDeviceCount function failed.\n");
 
         for (unsigned i = 0; i < devicesCount; ++i) {
             if (cudaSuccess != cudaSetDevice(i))
-                return std::printf("Cuda::ShowCapabilities failed: cudaSetDevice function failed.");
+                return std::printf("Cuda::ShowCapabilities failed: cudaSetDevice function failed.\n");
 
             cudaDeviceProp properties;
             if (cudaSuccess != cudaGetDeviceProperties(&properties, i))
-                return std::printf("Cuda::ShowCapabilities failed: cudaGetDeviceProperties function failed.");
+                return std::printf("Cuda::ShowCapabilities failed: cudaGetDeviceProperties function failed.\n");
 
             std::printf("Device: %s.\n"
                         "Max threads per block: %d, max blocks per multiprocessor %d, multiProcessorCount %d, max threads dimension: (%d, %d, %d),\n"
